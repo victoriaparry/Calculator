@@ -31,7 +31,7 @@ for (let i = 0; i < op.length; i++) {
     });
 }
 
-console.log(inputList)
+console.log(Array.isArray(inputList))
 
 function calcDisplay(){
     userInput.innerText = inputList.join('');
