@@ -70,7 +70,7 @@ function calculate(list){
             console.log(first/last);
             displayVal = first/last;
         }
-        clearDisplay()
+        inputList = [displayVal];
         userInput.textContent = displayVal;
     }
 }
