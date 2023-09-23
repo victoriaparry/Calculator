@@ -2,12 +2,14 @@ let number = document.querySelectorAll(".number");
 let op = document.querySelectorAll(".operator");
 let clear = document.querySelector("#clear");
 let equals = document.querySelector("#equals");
+let userInput = document.querySelector("#user-input");
 
-let input_list = []
+let inputList = [];
 
 
-clear.addEventListener("click", function alertme() {
-    alert("clear");
+clear.addEventListener("click", function clear() {
+    inputList = [];
+    calcDisplay();
 });
 
 equals.addEventListener("click", function alertme() {
@@ -17,14 +19,20 @@ equals.addEventListener("click", function alertme() {
 
 for (let i = 0; i < number.length; i++) {
     number[i].addEventListener("click", function addnum() {
-        input_list.push(number[i].value);
+        inputList.push(number[i].value);
+        calcDisplay();
     });
 }
 
 for (let i = 0; i < op.length; i++) {
     op[i].addEventListener("click", function operator_func() {
-        input_list.push(op[i].value);
+        inputList.push(op[i].value);
+        calcDisplay();
     });
 }
 
-console.log(input_list)
+console.log(inputList)
+
+function calcDisplay(){
+    userInput.innerText = inputList.join('');
+}
