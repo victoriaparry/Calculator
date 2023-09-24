@@ -6,7 +6,7 @@ let userInput = document.querySelector("#user-input");
 let first = 0;
 let last = 0;
 let displayVal = 0;
-
+let opSet = new Set(["+", "-", "x", "/"]);
 
 let inputList = [];
 
@@ -30,7 +30,10 @@ for (let i = 0; i < number.length; i++) {
 
 for (let i = 0; i < op.length; i++) {
     op[i].addEventListener("click", function operator_func() {
-        inputList.push(op[i].value);
+        console.log(opSet.has(inputList[i-1]))
+        if (!(opSet.has(inputList[inputList.length-1])) & inputList.length > 0){
+            inputList.push(op[i].value);
+        }
         calcDisplay();
     });
 }
@@ -71,6 +74,6 @@ function calculate(list){
             displayVal = first/last;
         }
         inputList = [displayVal];
-        userInput.textContent = displayVal;
+        calcDisplay();
     }
 }
