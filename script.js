@@ -52,10 +52,7 @@ function calculate(list){
             displayVal = add(list, i);
         }
         if (list[i] == "-"){
-            first = parseInt(list.slice(0,i).join(''));
-            last = parseInt(list.slice(i+1, (list.length)).join(''));
-            console.log(first-last);
-            displayVal = first - last;
+            displayVal = sub(list, i);
         }
         if (list[i] == "x"){
             first = parseInt(list.slice(0,i).join(''));
@@ -81,3 +78,9 @@ function add(list, i){
     return first + last;
 }
 
+function sub(list, i){
+    first = parseInt(list.slice(0,i).join(''));
+    last = parseInt(list.slice(i+1, (list.length)).join(''));
+    console.log(first-last);
+    return first - last;
+}
