@@ -30,7 +30,6 @@ for (let i = 0; i < number.length; i++) {
 
 for (let i = 0; i < op.length; i++) {
     op[i].addEventListener("click", function operator_func() {
-        console.log(opSet.has(inputList[i-1]))
         if (!(opSet.has(inputList[inputList.length-1])) & inputList.length > 0){
             inputList.push(op[i].value);
         }
@@ -50,10 +49,7 @@ equals.addEventListener("click", function(){calculate(inputList)});
 function calculate(list){
     for(let i = 0; i < list.length; i++){
         if (list[i] == "+"){
-            first = parseInt(list.slice(0,i).join(''));
-            last = parseInt(list.slice(i+1, (list.length)).join(''));
-            console.log(first+last);
-            displayVal = first + last;
+            displayVal = add(list, i);
         }
         if (list[i] == "-"){
             first = parseInt(list.slice(0,i).join(''));
@@ -77,3 +73,11 @@ function calculate(list){
         calcDisplay();
     }
 }
+
+function add(list, i){
+    first = parseInt(list.slice(0,i).join(''));
+    last = parseInt(list.slice(i+1, (list.length)).join(''));
+    console.log(first+last);
+    return first + last;
+}
+
